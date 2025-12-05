@@ -1,1 +1,1 @@
-# Physical_AI_-_Humanoid_Robotics_Textbook
+# Physical_AI_Humanoid_Robotics_Textbook
