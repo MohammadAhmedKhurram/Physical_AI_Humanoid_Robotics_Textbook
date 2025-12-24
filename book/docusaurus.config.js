@@ -11,7 +11,7 @@ const config = {
     v4: true,
   },
 
-  url: 'https://example.com',
+  url: 'https://physical-ai-humanoid-robotics-textb-two-iota.vercel.app/',
   baseUrl: '/',
   organizationName: 'your-org',
   projectName: 'physical-ai-book',
