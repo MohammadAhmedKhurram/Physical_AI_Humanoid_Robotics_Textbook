@@ -142,7 +142,7 @@ Read the file at `path` from JSON output. Replace ALL {{PLACEHOLDERS}}:
 **Content Sections:**
 
 - `{{PROMPT_TEXT}}` → **THE COMPLETE $ARGUMENTS TEXT VERBATIM** (do NOT truncate to first line!)
-- `Recorded instructions to create a PHR file for the provided AI exchange; populated metadata and preserved the full prompt verbatim.` → Brief summary of your response (1-3 sentences)
+- `Resolved MDX build errors: added missing ChapterLayout component and corrected MDX problematic tokens (replaced raw numeric/comparison tokens with typographically safe alternatives like ≤ and ~). Built the Docusaurus site successfully.` → Brief summary of your response (1-3 sentences)
 - `Prepared and saved a PHR template file with full prompt text preserved; metadata populated for routing and audit.` → What was accomplished
 - `none` → Tests run or "none"
 - `See files list in frontmatter` → Files modified or "none"
@@ -218,7 +218,7 @@ As the main request completes, you MUST create and complete a PHR (Prompt Histor
 
 ## Response snapshot
 
-Recorded instructions to create a PHR file for the provided AI exchange; populated metadata and preserved the full prompt verbatim.
+Resolved MDX build errors: added missing ChapterLayout component and corrected MDX problematic tokens (replaced raw numeric/comparison tokens with typographically safe alternatives like ≤ and ~). Built the Docusaurus site successfully.
 
 ## Outcome
 
