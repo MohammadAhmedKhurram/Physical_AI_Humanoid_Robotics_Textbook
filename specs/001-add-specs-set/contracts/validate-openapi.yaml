@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: Chapter Validator API
+  version: '0.1.0'
+paths:
+  /validate:
+    post:
+      summary: Validate a chapter spec markdown file
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                path:
+                  type: string
+                  description: Absolute path to the chapter markdown file
+      responses:
+        '200':
+          description: Validation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationReport'
+components:
+  schemas:
+    ValidationReport:
+      type: object
+      properties:
+        chapter_id:
+          type: string
+        overall_status:
+          type: string
+          enum: [PASS, FAIL]
+        per_tab_results:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+              status:
+                type: string
+                enum: [PASS, FAIL]
+              word_count:
+                type: integer
+              diagnostics:
+                type: array
+                items:
+                  type: string
+      required: [chapter_id, overall_status, per_tab_results]

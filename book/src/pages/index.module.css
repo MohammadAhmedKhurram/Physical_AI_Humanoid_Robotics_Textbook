@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700;900&display=swap');
+
+:root{
+  --max-width:1160px;
+  --ink: #0b1114; /* deep neutral */
+  --accent: #0b6f61; /* modern teal/emerald accent */
+  --muted: #546163;
+  --bg-soft: #f7f9f8;
+  --section-gap: 44px;
+}
+
+/* Page root and container */
+.pageRoot{
+  background: var(--bg-soft);
+  color: var(--ink);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+/* Top fixed academic navbar (page-local) */
+.topNavWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  transition: transform 220ms ease, opacity 220ms ease;
+  background: transparent;
+}
+.topNav {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(11,17,20,0.04);
+}
+.navContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navLeft {
+  display:flex; gap:10px; align-items:center; font-size:14px; color: var(--muted);
+}
+.navEmoji { font-size: 1em; line-height: 1; display: inline-block; margin-left: 0.35ch; vertical-align: middle; }
+.navBrand { font-family: 'Merriweather', serif; font-weight:700; color: var(--ink); }
+.navCenter { display:flex; gap:20px; align-items:center; }
+.navLink { color: var(--muted); text-decoration:none; font-size:14px; font-weight:600; }
+.navLink:hover { color: var(--ink); }
+.navActive { color: var(--accent); }
+.navRight { display:flex; align-items:center; gap:8px; }
+.themeToggle { background:transparent; border:none; cursor:pointer; color: var(--muted); padding:6px; }
+.topNavHidden { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+
+/* HERO SECTION */
+
+.heroSection{
+  background: #ffffff;
+  padding: calc(var(--section-gap) * 1.1) 0 calc(var(--section-gap) * 0.9) 0;
+  border-bottom: 1px solid rgba(11,17,20,0.06);
+}
+
+.heroInner{
+  display:flex;
+  align-items:flex-start;
+  gap:28px;
+}
+
+.heroContent{ flex:1; }
+
+.heroTitle{
+  font-family: 'Merriweather', serif;
+  font-size: clamp(36px, 6.5vw, 64px);
+  line-height: 1.02;
+  font-weight: 900;
+  margin: 0 0 8px 0;
+  color: var(--ink);
+}
+
+.heroSubtitle{
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  margin: 0 0 16px 0;
+  color: rgba(11,17,20,0.75);
+}
+
+.heroIntro{
+  font-size: 16px;
+  color: var(--muted);
+  max-width:66ch;
+  margin: 0 0 20px 0;
+}
+
+.heroActions{ display:flex; gap:12px; }
+
+.buttonPrimary{
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:700;
+  display:inline-block;
+}
+
+/* SYSTEM FLOW SECTION */
+.flowSection{
+  background: var(--bg-soft);
+  padding: calc(var(--section-gap) * 0.9) 0 calc(var(--section-gap) * 0.7) 0;
+  border-bottom: 1px solid rgba(11,17,20,0.03);
+}
+
+.sectionHeading{
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  font-weight:700;
+  color: var(--accent);
+  margin: 0 0 14px 0;
+}
+
+.flowViz{
+  display:flex;
+  justify-content:center;
+  width:100%;
+}
+
+.flowSvg{ width:100%; max-width:920px; height:auto; }
+
+.flowNodeTitle{ font-family: 'Merriweather', serif; font-weight:700; font-size:13px; fill: var(--ink); }
+
+.flowNodeSub{ font-family: 'Inter', sans-serif; font-size:12px; fill: var(--muted); }
+
+/* CHAPTERS / CURRICULUM */
+.chaptersSection{
+  background: #ffffff;
+  padding: calc(var(--section-gap) * 0.9) 0 calc(var(--section-gap) * 0.9) 0;
+}
+
+.curriculumIntro{
+  margin: 0 0 18px 0;
+  color: var(--muted);
+  font-size:15px;
+}
+
+.chaptersGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 28px;
+  margin: 0;
+  padding: 0;
+  list-style:none;
+}
+
+.chapterRow{ display:flex; gap:12px; align-items:center; padding:8px 0; }
+
+.chapterNum{ color: var(--accent); font-weight:800; min-width:40px; }
+
+.chapterText{ font-weight:600; }
+
+/* CLOSING */
+.closingStatement{
+  margin-top:20px;
+  font-weight:600;
+  color: var(--muted);
+}
+
+/* FOOTER: use global site footer only (no page-level footer) */
+.footerSection{ display:none; }
+
+/* Ensure default site chrome (global navbar/footer) remains functional; we render a small page-local nav only for visual control */
+:root {}
+
+/* Responsive adjustments */
+@media (max-width: 920px){
+  .heroInner{ flex-direction:column; }
+  .chaptersGrid{ grid-template-columns: 1fr; }
+  .container{ padding:28px 18px; }
+}
+
+@media (max-width:520px){
+  .heroTitle{ font-size:28px; }
+  .heroSubtitle{ font-size:15px; }
+  .heroIntro{ font-size:14px; }
+}

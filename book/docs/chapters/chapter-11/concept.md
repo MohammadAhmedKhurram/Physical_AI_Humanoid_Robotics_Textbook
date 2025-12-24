@@ -1,0 +1,15 @@
+Concept — Conversational Robotics
+
+Conversational robotics studies systems that perceive, reason about, and act upon human-language interactions situated in the physical world. Unlike task-limited voice agents, conversational robots must jointly model speech, language, embodied perception (vision, localization, tactile feedback), and motor control so that utterances alter and are constrained by a robot's physical capabilities and environment. The core research and engineering challenge is grounded in the symbol–signal gap: mapping continuous sensor streams (microphone arrays, depth cameras, IMUs) into discrete communicative acts (intent hypotheses, slot-value pairs) and then mapping those acts into safe, contextually appropriate physical behaviors (navigation, gaze, manipulation).
+
+Key properties and tradeoffs:
+- Situatedness: utterances must be interpreted relative to the robot’s sensor viewpoint, local maps, and object state; ambiguity resolution often requires perception ("Which mug?" → point or gaze).
+- Latency vs. Accuracy: conversational loops depend on low end-to-end latency (speech capture → ASR → NLU → policy → actuation). Real-time constraints push system designers toward streaming ASR and incremental NLU, trading slight accuracy for responsiveness.
+- Robustness to noise: microphone arrays and beamforming, plus sensor fusion with visual grounding, increase robustness in cluttered environments.
+- Dialogue management complexity: long-running tasks require stateful dialog and recovery strategies; short dialogs can be stateless but must still map language to actions reliably.
+
+Physically grounded example (receptionist robot):
+A hospital lobby robot equipped with a microphone array, an Intel RealSense RGB‑D camera, and differential-drive base uses ROS 2 as middleware. Spoken queries are captured and beamformed on-device; streaming ASR produces transcripts sent to an NLU module that consults a local knowledge base (patient rooms, visiting hours). If the NLU resolves a navigation request, the dialog manager issues a navigation goal to the robot’s planner. If the request is ambiguous ("Where is Dr. Lee?"), the system responds with a clarification prompt while using the RGB‑D feed to attempt person detection. This pipeline highlights cross-cutting requirements: sensor calibration, low-latency ASR, semantic grounding of referents, and safety-aware motion.
+
+Why it matters:
+Conversational robots extend human–robot interaction beyond screens and buttons into naturalistic, multi‑modal, long‑running engagements in workplaces, public spaces, and homes. Success requires an interdisciplinary synthesis of speech and language technology, robotics middleware (ROS 2), and embodied perception; the following tabs translate concept into system design, simulation strategies, implementation steps, and integration patterns.

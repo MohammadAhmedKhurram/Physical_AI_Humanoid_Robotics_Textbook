@@ -1,0 +1,11 @@
+Concept
+
+NVIDIA Isaac is an ecosystem for building AI‑native robotics: it combines GPU‑accelerated simulation (Isaac Sim), robotics primitives (Isaac SDK / Isaac ROS), and optimized inference/runtime tooling (TensorRT, PyTorch with CUDA) to streamline sim‑to‑real workflows. The platform emphasizes high‑fidelity sensor realism, hardware‑accurate physics (PhysX), and integrated data pipelines so perception, planning, and learned control can be developed and validated within a unified environment.
+
+Isaac’s advantage lies in coupling GPU path tracing and physics to produce datasets that are closer to target deployment conditions. This reduces domain gap for perception tasks and shortens the calibration loop for control policies. The platform also integrates tightly with NVIDIA hardware and software stacks which enables optimized inference (TensorRT) for low‑latency deployment on embedded platforms such as NVIDIA Jetson and Orin.
+
+Operational patterns: Isaac Sim uses USD for scene composition and exposes a Python API for scripting randomized experiments and data capture. Teams typically implement a two‑stage generation pipeline: a physics‑first pass to validate dynamics and collisions (which can run headless on CPU), and a rendering‑first pass on GPU workers that produces photoreal frames, segmentation, and depth. This split lets teams budget GPU resources while retaining contact fidelity.
+
+Physically grounded example: simulate a mobile manipulator conducting bin picking in Isaac Sim with path‑traced lighting and randomized material BRDFs. Use the Isaac ROS bridge to stream sensor data to ROS 2 and train a grasp network on the produced dataset. Deploy the trained network as a TensorRT engine on an NVIDIA Orin‑based controller for HIL validation; measure grasp success rate and inference latency during short supervised runs.
+
+Constraints and acceptance focus: Isaac demands GPU resources and expertise with USD/renderer concepts. Acceptance for this tab requires practical guidance on operational patterns, concrete tooling references (Isaac Sim, TensorRT, ROS 2), and a physically grounded example demonstrating the sim‑to‑real loop.

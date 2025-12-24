@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+dist/
+build/
+coverage/
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.venv/
+venv/
+.env
+.env.*
+# Docusaurus build and node modules inside book/
+book/.docusaurus/
+book/node_modules/
+book/build/
+# Editor/OS files
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+# Validation output
+output/validation/
+reports/
+# Logs
+*.log
+
+# Misc
+*.tmp
+*.bak

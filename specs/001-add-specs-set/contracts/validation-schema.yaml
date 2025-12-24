@@ -1,0 +1,29 @@
+# JSON Schema placeholder for chapter validation
+# Final artifact should be a JSON Schema at specs/001-add-specs-set/contracts/chapter-schema.json
+
+$schema: "http://json-schema.org/draft-07/schema#"
+title: Chapter
+type: object
+properties:
+  title:
+    type: string
+  order:
+    type: integer
+  metadata:
+    type: object
+  tabs:
+    type: array
+    minItems: 5
+    maxItems: 5
+    items:
+      type: object
+      properties:
+        role:
+          type: string
+          enum: [Concept, System, Simulation, Implementation, Integration]
+        content:
+          type: string
+        examples:
+          type: array
+      required: [role, content, examples]
+required: [title, order, metadata, tabs]
